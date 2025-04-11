@@ -5,23 +5,34 @@
   }
   
   body {
-    background-image: url("img/ChatGPT Image 11_04_2025, 12_00_26.png");
+    background-image: url("img/imagen.png"); /* CONFIRA se esse nome está certo! */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Começa do topo */
+    justify-content: center;
+    flex-direction: column;
   }
-  
   .container {
-        text-align: center;
-        
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    z-index: 1;
+    position: relative;
   }
-  
   
   h1 {
     margin-bottom: 10px;
-    color: #f1f1f1;
+    color: #2c3e50;
   }
   
   hr {
@@ -34,4 +45,5 @@
     font-size: 1.1em;
     margin: 10px auto;
     color: #333;
+    font-size: 30px;
   }

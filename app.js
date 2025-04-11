@@ -63,9 +63,6 @@ while(true){
     console.log(valorEncontradoNoPosto);
     console.log(media);
     ExibirTexto('===Resultado===', 'h2');
-    ExibirTexto(`O consumo necessário é de ${consumo_NecessarioLitros.toFixed(2)}`, 'p');
-    ExibirTexto(`O menor valor foi de ${menorValorPesquisado}`, 'p');
-    ExibirTexto(`A média dos valores pesquisados é de ${media.toFixed(2)}`,'p');
-    ExibirTexto(`o gasto diario (ida e volta) é de ${gastoDiario.toFixed(2)}`,'p');
-    
+    ExibirTexto(`O consumo necessário é de ${consumo_NecessarioLitros.toFixed(2)}\nO menor valor foi de ${menorValorPesquisado}\nA média dos valores pesquisados é de ${media.toFixed(2)}\nO gasto diario (ida e volta) é de ${gastoDiario.toFixed(2)}`, 'p');
+  
 }
