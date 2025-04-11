@@ -23,30 +23,44 @@ function mediaEGastoDiario(){
     let consumo_NecessarioLitros = calculoConsumomedio();
     let valor_Total = 0;
     //peço que o user digite em quantos postos ele pesquisou para usar como o atributo do laço for
-    let qtdPostos = parseInt(prompt('Em quantos postos você pesquisou ?'));
     //laço de repetição que coloca os valores em uma lista e soma todos os valores
-    for(let i = 0; i != qtdPostos; i++){
-        let valor = parseFloat(prompt(`Digite o valor encontrado no Posto ${i+1}`));
-        valores.push(valor)
-        valor_Total += valor; 
-    }
-    //calcula a média, menor valor e o gasto diario
-    let media = Math.round(valor_Total/qtdPostos);
-    let menor_Valor_Pesquisado = Math.min(...valores);
-    gasto_Diario = 2*(consumo_NecessarioLitros * menor_Valor_Pesquisado);
     
-    return {
-        consumo_NecessarioLitros,
-        media,
-        menor_Valor_Pesquisado,
-        gasto_Diario,
-    }    
+        let qtdPostos = parseInt(prompt('Em quantos postos você pesquisou ?'));
+        let valor; 
+        for(let i = 0; i != qtdPostos; i++){
+            while(true){
+                valor= parseFloat(prompt(`Digite o valor encontrado no Posto ${i+1}`));
+                if(isNaN(valor)){
+                    alert('O valor não é um número, digite- o novamente');
+                }
+            else if( i != qtdPostos && valor != NaN){
+            valores.push(valor);
+            valor_Total += valor; 
+            }
+            else{
+                break;
+            }
+        }
+        //calcula a média, menor valor e o gasto diario
+        let media = Math.round(valor_Total/qtdPostos);
+        let menor_Valor_Pesquisado = Math.min(...valores);
+        let gasto_Diario = 2*(consumo_NecessarioLitros * menor_Valor_Pesquisado);
+    
+        return {
+            consumo_NecessarioLitros,
+            media,
+            menor_Valor_Pesquisado,
+            gasto_Diario,
+        }    
+        
 }
+}
+
 
 //funcao para exibir tela
 function exibirTela(){
 let mediaFunction = mediaEGastoDiario();
-//teste no console
+    //teste no console
 console.log(`Média ${mediaFunction.media}`);
 console.log(`Menor valor ${mediaFunction.menor_Valor_Pesquisado}`);
 console.log(`gasto diario ${mediaFunction.gasto_Diario}`);
@@ -57,6 +71,5 @@ O menor valor pesquisado é de ${mediaFunction.menor_Valor_Pesquisado} reais
 A média de valores pesquisados é de R$ ${mediaFunction.media}
 O gasto diário (ida e volta) é R$ ${mediaFunction.gasto_Diario} reais`);
 }
-
 exibirTela();
 //fazendo a segunda parte do desafio
